@@ -1,5 +1,4 @@
-import { render } from 'solid-js/web';
+import { render } from "solid-js/web";
+import { TodoList } from "./components";
 
-import { TodoList } from './components';
-
-render(() => <TodoList />, document.getElementById('root')!);
+render(() => <TodoList />, document.getElementById("root")!);
