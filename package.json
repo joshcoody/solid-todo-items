@@ -8,13 +8,15 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "vitest",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
     "postinstall": "node ./fix-jest-dom.mjs"
   },
   "license": "MIT",
   "devDependencies": {
     "@testing-library/dom": "^8.16.0",
     "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/user-event": "^14.3.0",
     "@types/testing-library__jest-dom": "^5.14.5",
     "c8": "^7.12.0",
     "jsdom": "^20.0.0",

@@ -1,9 +1,9 @@
-import { For, createSignal } from "solid-js";
-import { Todo, UpdateTodoFunc } from "../../types";
-import { TodoItem } from "../todoItem";
+import { Component, For, createSignal } from "solid-js";
+import { Todo, UpdateTodoFunc } from "~/types";
+import { TodoItem } from "~/components/todoItem";
 import { v4 } from "uuid";
 
-export const TodoList = () => {
+export const TodoList: Component = () => {
   let input!: HTMLInputElement;
   const [todoItems, setTodoItems] = createSignal<Todo[]>([]);
   const addTodo = (text: string) => {
@@ -14,7 +14,7 @@ export const TodoList = () => {
     setTodoItems(
       todoItems().map((todo) =>
         todo.id === nextTodo.id
-          ? { ...todo, completed: nextTodo?.completed ?? todo.completed }
+          ? { ...todo, completed: nextTodo.completed }
           : todo
       )
     );
@@ -29,6 +29,7 @@ export const TodoList = () => {
           ref={input}
         />
         <button
+          data-testid="add-todo"
           onClick={() => {
             if (!input.value.trim()) return;
             addTodo(input.value);

@@ -4,6 +4,6 @@ export interface Todo {
   completed: boolean;
 }
 
-export type UpdateTodoInput = Partial<Todo> & { id: string };
+export type UpdateTodoInput = Omit<Todo, "text">;
 
 export type UpdateTodoFunc = (nextTodo: UpdateTodoInput) => void;
